@@ -7,11 +7,7 @@ Console.WriteLine("Hello, World!");
 //Console.ReadLine();
 
 // C# => Database
-
-// EFCore / Entity Framework
-
 // nuget
-
 
 // ADO.NET
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
@@ -22,13 +18,17 @@ Console.WriteLine("Hello, World!");
 //adoDotNetExample.Delete();
 
 // Dapper
-DapperExample dapperExample = new DapperExample();
+//DapperExample dapperExample = new DapperExample();
 //dapperExample.Read();
 //dapperExample.Create("title 1", "author", "content");
 //dapperExample.Edit(1);
 //dapperExample.Edit(2);
-dapperExample.Update(2,"title 1", "author", "content");
-dapperExample.Delete(14);
+//dapperExample.Update(2,"title 1", "author", "content");
+//dapperExample.Delete(14);
 
+// EFCore / Entity Framework
+EFCoreExample eFCoreExample = new EFCoreExample();
+//eFCoreExample.Read();
+eFCoreExample.Create("title 1", "auhtor", "content");
 
 Console.ReadKey();
