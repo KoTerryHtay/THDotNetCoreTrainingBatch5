@@ -26,9 +26,11 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Update(2,"title 1", "author", "content");
 //dapperExample.Delete(14);
 
-// EFCore / Entity Framework
+// EFCore / Entity Framework (database first) manual, auto
 EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Read();
-eFCoreExample.Create("title 1", "auhtor", "content");
+//eFCoreExample.Create("title 1", "auhtor", "content");
+
+// code first
 
 Console.ReadKey();
