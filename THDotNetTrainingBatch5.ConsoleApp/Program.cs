@@ -27,10 +27,14 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Delete(14);
 
 // EFCore / Entity Framework (database first) manual, auto
-EFCoreExample eFCoreExample = new EFCoreExample();
+//EFCoreExample eFCoreExample = new EFCoreExample();
 //eFCoreExample.Read();
 //eFCoreExample.Create("title 1", "auhtor", "content");
 
 // code first
+
+// Custom Dapper Service
+DapperExample2 dapperExample2 = new DapperExample2();
+dapperExample2.Read();
 
 Console.ReadKey();
