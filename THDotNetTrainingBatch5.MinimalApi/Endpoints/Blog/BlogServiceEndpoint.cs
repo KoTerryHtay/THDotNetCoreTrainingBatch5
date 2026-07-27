@@ -2,6 +2,7 @@
 
 namespace THDotNetTrainingBatch5.MinimalApi.Endpoints.Blog;
 
+// Presentation Layer
 public static class BlogServiceEndpoint
 {
 

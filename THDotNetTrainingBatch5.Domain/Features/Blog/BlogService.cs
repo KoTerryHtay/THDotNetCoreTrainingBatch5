@@ -9,6 +9,7 @@ using THDotNetTrainingBatch5.Database.Models;
 
 namespace THDotNetTrainingBatch5.Domain.Features.Blog;
 
+// Business Logic + Data Access Layer
 public class BlogService
 {
     private readonly AppDbContext _db = new AppDbContext();
