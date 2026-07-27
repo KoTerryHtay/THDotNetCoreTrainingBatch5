@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace THDotNetTrainingBatch5.ConsoleApp
 {
@@ -70,7 +63,7 @@ namespace THDotNetTrainingBatch5.ConsoleApp
 
             Console.WriteLine("Blog Content: ");
             string content = Console.ReadLine();
-          
+
             SqlConnection connection = new SqlConnection(_connectionString);
 
             connection.Open();
@@ -127,7 +120,7 @@ namespace THDotNetTrainingBatch5.ConsoleApp
 
             connection.Close();
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found.");
                 return;
@@ -172,7 +165,7 @@ namespace THDotNetTrainingBatch5.ConsoleApp
             cmd.Parameters.AddWithValue("@BlogId", id);
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
-            cmd.Parameters.AddWithValue("@BlogContent", content);            
+            cmd.Parameters.AddWithValue("@BlogContent", content);
 
             int result = cmd.ExecuteNonQuery();
 
@@ -194,7 +187,7 @@ namespace THDotNetTrainingBatch5.ConsoleApp
 
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            cmd.Parameters.AddWithValue("@BlogId", id);          
+            cmd.Parameters.AddWithValue("@BlogId", id);
 
             int result = cmd.ExecuteNonQuery();
 

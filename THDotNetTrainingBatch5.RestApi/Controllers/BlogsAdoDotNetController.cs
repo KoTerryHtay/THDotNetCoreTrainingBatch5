@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using System.Collections.Generic;
 using System.Data;
-using System.Reflection.Metadata;
 using THDotNetTrainingBatch5.RestApi.ViewModels;
 
 namespace THDotNetTrainingBatch5.RestApi.Controllers

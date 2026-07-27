@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using THDotNetTrainingBatch5.ConsoleApp.Models;
 
 namespace THDotNetTrainingBatch5.ConsoleApp
@@ -97,7 +92,7 @@ namespace THDotNetTrainingBatch5.ConsoleApp
 
         public void Delete(int id)
         {
-            AppDbContext db = new AppDbContext();            
+            AppDbContext db = new AppDbContext();
             var item = db.Blog
                 .AsNoTracking()
                 .FirstOrDefault(x => x.BlogId == id);

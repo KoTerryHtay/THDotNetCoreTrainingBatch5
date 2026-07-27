@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using THDotNetTrainingBatch5.Shared;
 
 namespace THDotNetTrainingBatch5.ConsoleApp

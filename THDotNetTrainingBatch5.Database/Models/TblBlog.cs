@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace THDotNetTrainingBatch5.Database.Models;
+﻿namespace THDotNetTrainingBatch5.Database.Models;
 
 public partial class TblBlog
 {
