@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using THDotNetTrainingBatch5.Database.Models;
 using THDotNetTrainingBatch5.Domain.Features.Blog;
+using THDotNetTrainingBatch5.RestApi.Endpoints;
 
 namespace THDotNetTrainingBatch5.RestApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class BlogServiceController : ControllerBase
+//public class BlogServiceController : ControllerBase
+public class BlogServiceController : BaseController
 {
     private readonly BlogService _service;
 
@@ -47,13 +49,20 @@ public class BlogServiceController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult UpdateBlogs(int id, TblBlog blog)
     {
-        var item = _service.UpdateBlog(id, blog);
-        if (item is null)
-        {
-            return NotFound();
-        }
+        var model = _service.UpdateBlog(id, blog);
 
-        return Ok(item);
+        //if (model.Response.RespType.Equals(EnumRespType.SystemError)) return NotFound(model);
+
+        //return Ok(model);
+
+        //if (item is null)
+        //{
+        //    return NotFound();
+        //}
+
+        //return Ok(model);
+
+        return Execute(model);
     }
 
     [HttpPatch("{id}")]
