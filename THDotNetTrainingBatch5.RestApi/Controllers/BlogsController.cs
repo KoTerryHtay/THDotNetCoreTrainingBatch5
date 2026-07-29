@@ -39,7 +39,7 @@ namespace THDotNetTrainingBatch5.RestApi.Controllers
             _db.TblBlogs.Add(blog);
             _db.SaveChanges();
 
-            return Ok();
+            return Ok(blog);
         }
 
         [HttpPut("{id}")]
