@@ -11,5 +11,10 @@ Console.WriteLine("Hello, World!");
 //await httpClient.Update(10, "title test", "body test", 1);
 //await httpClient.Delete(10);
 
-RestClientExample restClient = new RestClientExample();
-await restClient.Read();
+//RestClientExample restClient = new RestClientExample();
+//await restClient.Read();
+
+RefitExample refit = new RefitExample();
+await refit.Run();
+
+Console.ReadKey();
