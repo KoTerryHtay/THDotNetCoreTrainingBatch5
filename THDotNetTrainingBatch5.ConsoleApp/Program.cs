@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.Extensions.DependencyInjection;
 using THDotNetTrainingBatch5.ConsoleApp;
 
 Console.WriteLine("Hello, World!");
@@ -32,7 +33,13 @@ Console.WriteLine("Hello, World!");
 // code first
 
 // Custom Dapper Service
-DapperExample2 dapperExample2 = new DapperExample2();
-dapperExample2.Read();
+//DapperExample2 dapperExample2 = new DapperExample2();
+//dapperExample2.Read();
+
+var services = new ServiceCollection()
+    .AddSingleton<AdoDotNetExample>()
+    .BuildServiceProvider();
+var adoDotNetExample = services.GetRequiredService<AdoDotNetExample>();
+adoDotNetExample.Read();
 
 Console.ReadKey();

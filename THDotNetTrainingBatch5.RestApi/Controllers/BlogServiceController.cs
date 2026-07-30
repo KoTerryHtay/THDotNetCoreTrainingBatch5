@@ -12,12 +12,17 @@ namespace THDotNetTrainingBatch5.RestApi.Controllers;
 //public class BlogServiceController : ControllerBase
 public class BlogServiceController : BaseController
 {
-    private readonly BlogService _service;
+    private readonly IBlogService _service;
 
-    public BlogServiceController()
+    public BlogServiceController(IBlogService service)
     {
-        _service = new BlogService();
+        _service = service;
     }
+
+    //public BlogServiceController()
+    //{
+    //    _service = new BlogService();
+    //}
 
     [HttpGet]
     public IActionResult GetBlogs()

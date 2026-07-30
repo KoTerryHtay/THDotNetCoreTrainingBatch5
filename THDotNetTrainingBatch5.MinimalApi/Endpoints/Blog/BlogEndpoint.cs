@@ -1,4 +1,6 @@
-﻿namespace THDotNetTrainingBatch5.MinimalApi.Endpoints.Blog;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace THDotNetTrainingBatch5.MinimalApi.Endpoints.Blog;
 
 public static class BlogEndpoint
 {
@@ -11,18 +13,17 @@ public static class BlogEndpoint
     public static void UseBlogEndpoint(this IEndpointRouteBuilder app)
     {
 
-        app.MapGet("/blogs", () =>
+        app.MapGet("/blogs", ([FromServices] AppDbContext db) =>
         {
-            AppDbContext db = new AppDbContext();
+            //AppDbContext db = new AppDbContext();
             var model = db.TblBlogs.AsNoTracking().ToList();
             return Results.Ok(model);
         })
         .WithName("GetBlogs")
         .WithOpenApi();
 
-        app.MapGet("/blogs/{id}", (int id) =>
+        app.MapGet("/blogs/{id}", ([FromServices] AppDbContext db, int id) =>
         {
-            AppDbContext db = new AppDbContext();
             var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
@@ -33,9 +34,8 @@ public static class BlogEndpoint
         .WithName("GetBlog")
         .WithOpenApi();
 
-        app.MapPost("/blogs", (TblBlog blog) =>
+        app.MapPost("/blogs", ([FromServices] AppDbContext db, TblBlog blog) =>
         {
-            AppDbContext db = new AppDbContext();
             db.TblBlogs.Add(blog);
             db.SaveChanges();
             return Results.Ok(blog);
@@ -43,9 +43,8 @@ public static class BlogEndpoint
         .WithName("CreateBlog")
         .WithOpenApi();
 
-        app.MapPut("/blogs/{id}", (int id, TblBlog blog) =>
+        app.MapPut("/blogs/{id}", ([FromServices] AppDbContext db, int id, TblBlog blog) =>
         {
-            AppDbContext db = new AppDbContext();
             var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
@@ -63,9 +62,8 @@ public static class BlogEndpoint
         .WithName("UpdateBlog")
         .WithOpenApi();
 
-        app.MapDelete("/blogs/{id}", (int id) =>
+        app.MapDelete("/blogs/{id}", ([FromServices] AppDbContext db, int id) =>
         {
-            AppDbContext db = new AppDbContext();
             var item = db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {
